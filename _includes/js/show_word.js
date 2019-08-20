@@ -6,7 +6,7 @@ function countDown(numSeconds, callback) {
         callback();
         return;
     }
-    let txt = "   " + numSeconds + "   ";
+    let txt = "&nbsp;&nbsp;" + numSeconds + "&nbsp;&nbsp;";
     let container = showFullscreenText(txt);
     setTimeout(() => {
         if (document.contains(container)) {
