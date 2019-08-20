@@ -6,8 +6,8 @@ function countDown(numSeconds, callback) {
         callback();
         return;
     }
-    let txt = ["Zero", "One", "Two", "Three"][numSeconds] || numSeconds;
-    let container = showFullscreenText(txt + "");
+    let txt = "   " + numSeconds + "   ";
+    let container = showFullscreenText(txt);
     setTimeout(() => {
         if (document.contains(container)) {
             container.remove();
