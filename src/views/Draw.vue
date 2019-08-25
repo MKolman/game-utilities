@@ -216,14 +216,16 @@ export default {
 .undo,
 .close {
   position: absolute;
-  left: 0;
   font-size: 3em;
   text-decoration: none;
   &.undo {
     bottom: 0;
+    left: 0;
     cursor: pointer;
+    font-size: 4em;
   }
   &.close {
+    left: 0.2em;
     top: 0;
   }
 }
