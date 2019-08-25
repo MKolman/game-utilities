@@ -1,6 +1,6 @@
 <template>
   <button v-on:click="showRandomWord()" class="btn" v-bind:style="style">
-    <span>{{ txt }}</span>
+    <span>{{ countdown || txt }}</span>
   </button>
 </template>
 
@@ -40,6 +40,7 @@ export default {
         step = 0;
       this.colorRight = colors[section];
       this.colorLeft = colors[section + 1];
+      this.countdown = colors.length - 1;
       this.interval = setInterval(() => {
         step += 1;
         this.load += (colors.length - 1) / stepsTotal;
@@ -51,6 +52,7 @@ export default {
           this.colorRight = colors[section];
           this.colorLeft = colors[section + 1];
           this.load = 0;
+          this.countdown = colors.length - 1 - section;
         }
       }, 3000 / stepsTotal);
     },
@@ -60,6 +62,7 @@ export default {
         clearTimeout(this.timeout);
         clearInterval(this.interval);
         this.colorRight = process.env.VUE_APP_THEME;
+        this.countdown = null;
         this.timeout = null;
         this.interval = null;
         return;
@@ -80,6 +83,7 @@ export default {
       load: 0,
       colorLeft: "#fdcd3b",
       colorRight: process.env.VUE_APP_THEME,
+      countdown: null,
       timeout: null,
       interval: null
     };
