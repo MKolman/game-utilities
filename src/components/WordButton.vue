@@ -34,7 +34,7 @@ export default {
       return collection[Math.floor(Math.random() * collection.length)];
     },
     animateButton: function() {
-      let colors = ["#D32F2F", "#fdcd3b", "blue", "green"];
+      let colors = [process.env.VUE_APP_THEME, "#fdcd3b", "blue", "green"];
       let section = 0,
         stepsTotal = 100,
         step = 0;
@@ -59,7 +59,7 @@ export default {
         this.load = 0;
         clearTimeout(this.timeout);
         clearInterval(this.interval);
-        this.colorRight = "#D32F2F";
+        this.colorRight = process.env.VUE_APP_THEME;
         this.timeout = null;
         this.interval = null;
         return;
@@ -79,7 +79,7 @@ export default {
     return {
       load: 0,
       colorLeft: "#fdcd3b",
-      colorRight: "#D32F2F",
+      colorRight: process.env.VUE_APP_THEME,
       timeout: null,
       interval: null
     };

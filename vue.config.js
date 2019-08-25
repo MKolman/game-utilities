@@ -5,8 +5,8 @@ module.exports = {
     loaderOptions: {
       sass: {
         data: `
-$theme-color: ${process.VUE_APP_THEME};
-$bg-color: ${process.VUE_APP_BGCOLOR};`
+$theme-color: ${process.env.VUE_APP_THEME};
+$bg-color: ${process.env.VUE_APP_BGCOLOR};`
       }
     }
   },
