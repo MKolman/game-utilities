@@ -62,6 +62,12 @@ export default {
       lang: "en",
       words: words
     };
+  },
+  watch: {
+    lang: function() { localStorage.setItem("lang", this.lang); }
+  },
+  mounted() {
+    this.lang = localStorage.getItem("lang") || "en";
   }
 };
 </script>
