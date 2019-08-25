@@ -4,6 +4,13 @@ import App from "./App.vue";
 import router from "./router";
 import "./registerServiceWorker";
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTimes, faUndo, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faTimes, faUndo, faTrash);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+
 router.beforeEach((to, from, next) => {
   document.title = process.env.VUE_APP_TITLE + " | " + to.meta.title;
   next();
