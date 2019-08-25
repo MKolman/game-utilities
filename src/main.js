@@ -5,10 +5,12 @@ import router from "./router";
 import "./registerServiceWorker";
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTimes, faUndo, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faBackward, faTimes, faUndo } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faClone } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faTimes, faUndo, faTrash);
+library.add(faTimes, faUndo, faBackward);
+library.add(faTrashAlt, faClone);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 router.beforeEach((to, from, next) => {
