@@ -34,7 +34,7 @@ export default {
       return collection[Math.floor(Math.random() * collection.length)];
     },
     animateButton: function() {
-      let colors = [process.env.VUE_APP_THEME, "#fdcd3b", "blue", "green"];
+      let colors = [process.env.VUE_APP_THEME, "#F1BE51", "#98A352", "#4B9086"];
       let section = 0,
         stepsTotal = 100,
         step = 0;
