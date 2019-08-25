@@ -6,7 +6,9 @@
       v-bind:class="{ vertical: isVertical }"
       >{{ $route.params.text }}</span
     >
-    <router-link to="/" class="close">✕</router-link>
+    <router-link to="/" class="close">
+      <font-awesome-icon icon="times" />
+    </router-link>
   </div>
 </template>
 
@@ -65,7 +67,7 @@ export default {
 .close {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0.2em;
   font-size: 3em;
   text-decoration: none;
 }

@@ -1,8 +1,10 @@
 <template>
   <div class="fullscreen">
     <canvas id="canvas"></canvas>
-    <router-link to="/" class="close">✕</router-link>
-    <a v-on:click="undoLine" class="undo">↺</a>
+    <router-link to="/" class="close">
+      <font-awesome-icon icon="times" />
+    </router-link>
+    <a v-on:click="undoLine" class="undo"><font-awesome-icon icon="undo" /></a>
   </div>
 </template>
 <script>
@@ -218,14 +220,12 @@ export default {
   position: absolute;
   font-size: 3em;
   text-decoration: none;
+  left: 0.2em;
   &.undo {
     bottom: 0;
-    left: 0;
     cursor: pointer;
-    font-size: 4em;
   }
   &.close {
-    left: 0.2em;
     top: 0;
   }
 }

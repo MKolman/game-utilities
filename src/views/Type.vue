@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <router-link to="/" class="close">✕</router-link>
+    <router-link to="/" class="close">
+      <font-awesome-icon icon="times" />
+    </router-link>
 
     <input type="text" ref="type" v-model="text" />
     <router-link
