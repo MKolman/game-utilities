@@ -1,4 +1,4 @@
-# game-utilities
+# Play Now
 
 ## Project setup
 ```
@@ -25,5 +25,14 @@ npm run test
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Deploy
+
+### [Staging](https://www.kolman.si/game-utilities-staging/)
+```
+npm run staging
+```
+
+### [Production](https://www.kolman.si/game-utilities/)
+```
+npm run deploy
+```
