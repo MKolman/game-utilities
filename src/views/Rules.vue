@@ -4,9 +4,7 @@
       <router-link to="/">Back</router-link>
     </h1>
     <Rule v-bind:img="img" v-bind:key="img.id" v-for="img in images" />
-    <h1>
-      <router-link to="/">Play Now</router-link>
-    </h1>
+    <router-link class="btn" to="/"><span>Play Now</span></router-link>
   </div>
 </template>
 
@@ -52,3 +50,8 @@ export default {
 };
 //   rules:
 </script>
+<style lang="scss">
+  .btn {
+    margin-top: 1em;
+  }
+</style>
