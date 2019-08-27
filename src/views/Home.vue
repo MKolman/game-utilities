@@ -38,16 +38,14 @@
     <h1>
       <router-link to="/rules">Rules</router-link>
     </h1>
-    <div class="footer">
-      Hosted on <a href="https://github.com/MKolman/game-utilities">GitHub</a>.
-      Go to the <a href="https://www.kolman.si">home page</a>.
-    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Score from "@/components/Score.vue";
+import Footer from "@/components/Footer.vue";
 import WordButton from "@/components/WordButton.vue";
 import words from "@/data/words.json";
 
@@ -55,6 +53,7 @@ export default {
   name: "home",
   components: {
     Score,
+    Footer,
     WordButton
   },
   data() {
@@ -115,10 +114,6 @@ input[type="radio"].lang + label img {
 }
 input[type="radio"].lang:checked + label img {
   border-color: $theme-color;
-}
-
-.footer {
-  margin-top: 5em;
 }
 
 .blink {
