@@ -19,3 +19,5 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+/game-utilities.sublime-project
+/game-utilities.sublime-workspace
