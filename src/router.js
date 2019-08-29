@@ -43,12 +43,6 @@ export default new Router({
       meta: { title: "Score" }
     },
     {
-      path: "/display/:text",
-      name: "display",
-      component: () => import("./views/Display.vue"),
-      meta: { title: "Display" }
-    },
-    {
       path: "/about",
       name: "about",
       component: () => import("./views/About.vue"),
@@ -65,6 +59,12 @@ export default new Router({
       name: "visionIdentity",
       component: () => import("./views/vision/Identity.vue"),
       meta: { title: "Vision" }
+    },
+    {
+      path: "/bombs",
+      name: "bombs",
+      component: () => import("./views/Bombs.vue"),
+      meta: { title: "Bombs" }
     }
   ]
 });
