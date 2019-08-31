@@ -1,7 +1,11 @@
 <template>
-  <button v-on:click="showRandomWord()" class="btn" v-bind:style="style">
-    <span>{{ countdown || txt }}</span>
-  </button>
+  <HalfButton
+    @click="showRandomWord()"
+    style="font-family: 'serif';"
+    :extraStyle="style"
+  >
+    {{ countdown || txt }}
+  </HalfButton>
 </template>
 
 <script>
@@ -89,11 +93,4 @@ export default {
     };
   }
 };
-// background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
 </script>
-
-<style scoped lang="scss">
-.btn {
-  font-family: "serif";
-}
-</style>

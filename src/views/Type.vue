@@ -1,16 +1,20 @@
 <template>
-  <div class="container">
-    <router-link to="/" class="close">
-      <font-awesome-icon icon="times" />
-    </router-link>
-
-    <input type="text" ref="type" v-model="text" />
-    <router-link
-      v-bind:to="{ name: 'display', params: { text: text || 'placeholder' } }"
-      class="btn"
+  <div class="container md-layout">
+    <md-button
+      to="/"
+      class="md-primary md-icon-button"
+      style="margin-top: 1em;"
     >
-      <span>SHOW</span>
-    </router-link>
+      <md-icon class="md-size-3x">close</md-icon>
+    </md-button>
+    <md-field class="md-layout-item md-size-95">
+      <md-input class="large" v-model="text" autofocus></md-input>
+    </md-field>
+    <HalfButton
+      :to="{ name: 'display', params: { text: text || 'placeholder' } }"
+    >
+      SHOW
+    </HalfButton>
   </div>
 </template>
 
@@ -21,37 +25,18 @@ export default {
     return {
       text: ""
     };
-  },
-  mounted() {
-    this.focusInput();
-  },
-  methods: {
-    focusInput() {
-      this.$refs.type.focus();
-    }
   }
 };
 </script>
 
 <style scoped lang="scss">
-.close {
-  text-align: left;
-  width: 100%;
-  display: inline-block;
-  text-decoration: none;
-  font-size: 3em;
-}
 .container {
   margin-top: 0;
+  justify-content: center;
 }
-.btn {
-  margin-top: 1em;
-}
-
-input {
-  text-align: center;
-  border: none;
-  font-size: 3em;
-  width: 100%;
+input.large {
+  font-size: 3em !important;
+  height: 1.5em !important;
+  // background-color: white;
 }
 </style>

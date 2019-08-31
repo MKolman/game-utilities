@@ -1,10 +1,7 @@
 <template>
   <div id="rules" class="container">
-    <h1>
-      <router-link to="/">Back</router-link>
-    </h1>
     <Rule v-bind:img="img" v-bind:key="img.id" v-for="img in images" />
-    <router-link class="btn" to="/"><span>Play Now</span></router-link>
+    <HalfButton style="margin-top: 1em;" to="/">Play Now</HalfButton>
   </div>
 </template>
 
@@ -51,7 +48,11 @@ export default {
 //   rules:
 </script>
 <style lang="scss">
-  .btn {
-    margin-top: 1em;
-  }
+body {
+  counter-reset: hcounter;
+}
+// h1:before {
+//   content: counter(hcounter) ".\0000a0\0000a0";
+//   counter-increment: hcounter;
+// }
 </style>

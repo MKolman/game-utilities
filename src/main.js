@@ -4,14 +4,14 @@ import App from "./App.vue";
 import router from "./router";
 import "./registerServiceWorker";
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBackward, faTimes, faUndo } from '@fortawesome/free-solid-svg-icons';
-import { faTrashAlt, faClone } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { MdButton, MdField, MdIcon } from "vue-material/dist/components";
+import "vue-material/dist/vue-material.min.css";
+Vue.use(MdButton);
+Vue.use(MdField);
+Vue.use(MdIcon);
 
-library.add(faTimes, faUndo, faBackward);
-library.add(faTrashAlt, faClone);
-Vue.component('font-awesome-icon', FontAwesomeIcon);
+import HalfButton from "@/components/HalfButton.vue";
+Vue.component("HalfButton", HalfButton);
 
 router.beforeEach((to, from, next) => {
   document.title = process.env.VUE_APP_TITLE + " | " + to.meta.title;

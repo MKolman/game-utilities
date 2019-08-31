@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ img.id }} {{ img.desc }}</h1>
+    <h1>{{ img.id }}. {{ img.desc }}</h1>
     <div class="centered">
       <img class="size-limit" v-bind:src="img.src" v-bind:alt="img.desc" />
     </div>
@@ -19,6 +19,8 @@ export default {
 <style scoped lang="scss">
 h1 {
   text-align: left;
+  text-indent: -1em;
+  padding-left: 1.5em;
 }
 .centered {
   text-align: center;
