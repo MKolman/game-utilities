@@ -1,5 +1,5 @@
 <template>
-  <div class="home container md-layout">
+  <div class="home md-layout">
     <HalfButton
       to="/draw"
       style="font-family: 'Cookie', Helvetica, sans-serif;"
@@ -33,29 +33,17 @@
     </h1>
     <WordButton v-bind:list="words[lang]['unique']" txt="UNIQUE" />
     <WordButton v-bind:list="words[lang]['alias']" txt="ALIAS" />
-    <Score />
-    <md-button
-      class="md-primary md-layout-item md-size-100"
-      style="margin-top: 1em; font-size: 3em;"
-      to="/rules"
-      >Rules</md-button
-    >
-    <Footer />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Score from "@/components/Score.vue";
-import Footer from "@/components/Footer.vue";
 import WordButton from "@/components/WordButton.vue";
 import words from "@/data/words.json";
 
 export default {
   name: "home",
   components: {
-    Score,
-    Footer,
     WordButton
   },
   data() {
@@ -76,19 +64,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Cookie");
-@import "~vue-material/dist/theme/engine"; // Import the theme engine
-
-@include md-register-theme(
-  "default",
-  (
-    primary: $theme-color,
-    // The primary color of your application
-      accent: #98a352 // The accent or secondary color
-  )
-);
-
-@import "~vue-material/dist/theme/all"; // Apply the theme
 // Lang
 input.lang {
   display: none;

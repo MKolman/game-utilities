@@ -20,6 +20,7 @@ export default {
 h1 {
   text-align: left;
   text-indent: -1em;
+  line-height: 1em;
   padding-left: 1.5em;
 }
 .centered {

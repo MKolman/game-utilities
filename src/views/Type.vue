@@ -3,7 +3,7 @@
     <md-button
       to="/"
       class="md-primary md-icon-button"
-      style="margin-top: 1em;"
+      style="top: 1em;position: absolute;left: 0.2em;"
     >
       <md-icon class="md-size-3x">close</md-icon>
     </md-button>
@@ -31,7 +31,7 @@ export default {
 
 <style scoped lang="scss">
 .container {
-  margin-top: 0;
+  margin-top: 3em;
   justify-content: center;
 }
 input.large {

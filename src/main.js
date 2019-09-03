@@ -4,11 +4,27 @@ import App from "./App.vue";
 import router from "./router";
 import "./registerServiceWorker";
 
-import { MdButton, MdField, MdIcon } from "vue-material/dist/components";
+import {
+  MdButton,
+  MdDivider,
+  MdContent,
+  MdToolbar,
+  MdField,
+  MdIcon,
+  MdApp,
+  MdDrawer,
+  MdList
+} from "vue-material/dist/components";
 import "vue-material/dist/vue-material.min.css";
 Vue.use(MdButton);
 Vue.use(MdField);
 Vue.use(MdIcon);
+Vue.use(MdApp);
+Vue.use(MdDrawer);
+Vue.use(MdList);
+Vue.use(MdContent);
+Vue.use(MdToolbar);
+Vue.use(MdDivider);
 
 import HalfButton from "@/components/HalfButton.vue";
 Vue.component("HalfButton", HalfButton);
@@ -37,5 +53,8 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: h => h(App)
+  render: h => h(App),
+  data: {
+    menuVisible: false
+  }
 }).$mount("#app");

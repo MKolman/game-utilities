@@ -1,7 +1,7 @@
 <template>
   <div class="md-layout-item md-size-50 md-small-size-100">
     <md-button
-      class="md-layout-item md-size-95 md-raised md-primary"
+      class="md-layout-item md-size-95 md-raised"
       style="font-size: 3em; height: 1.5em;"
       @click="$emit('click')"
       :to="to"
