@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <md-app class="container" md-mode="reveal">
+    <md-app class="container" md-waterfall md-mode="fixed">
       <md-app-toolbar class="md-primary">
         <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
           <md-icon>menu</md-icon>
@@ -98,7 +98,9 @@ a {
   margin: 0 auto;
   width: 800px;
   text-align: center;
-  min-height: 100vh;
+}
+.md-app {
+  height: 100vh;
 }
 
 @media screen and (max-width: 800px) {

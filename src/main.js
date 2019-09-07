@@ -5,26 +5,32 @@ import router from "./router";
 import "./registerServiceWorker";
 
 import {
+  MdApp,
   MdButton,
-  MdDivider,
+  MdCheckbox,
   MdContent,
-  MdToolbar,
+  MdDialog,
+  MdDivider,
+  MdDrawer,
   MdField,
   MdIcon,
-  MdApp,
-  MdDrawer,
-  MdList
+  MdList,
+  MdTable,
+  MdToolbar
 } from "vue-material/dist/components";
 import "vue-material/dist/vue-material.min.css";
+Vue.use(MdApp);
 Vue.use(MdButton);
+Vue.use(MdCheckbox);
+Vue.use(MdContent);
+Vue.use(MdDialog);
+Vue.use(MdDivider);
+Vue.use(MdDrawer);
 Vue.use(MdField);
 Vue.use(MdIcon);
-Vue.use(MdApp);
-Vue.use(MdDrawer);
 Vue.use(MdList);
-Vue.use(MdContent);
+Vue.use(MdTable);
 Vue.use(MdToolbar);
-Vue.use(MdDivider);
 
 import HalfButton from "@/components/HalfButton.vue";
 Vue.component("HalfButton", HalfButton);

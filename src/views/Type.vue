@@ -1,17 +1,16 @@
 <template>
-  <div class="container md-layout">
-    <md-button
-      to="/"
-      class="md-primary md-icon-button"
-      style="top: 1em;position: absolute;left: 0.2em;"
-    >
-      <md-icon class="md-size-3x">close</md-icon>
-    </md-button>
-    <md-field class="md-layout-item md-size-95">
+  <div>
+    <div class="leftAlign">
+      <md-button to="/" class="md-primary md-icon-button">
+        <md-icon class="md-size-3x">close</md-icon>
+      </md-button>
+    </div>
+    <md-field>
       <md-input class="large" v-model="text" autofocus></md-input>
     </md-field>
     <HalfButton
       :to="{ name: 'display', params: { text: text || 'placeholder' } }"
+      :primary="true"
     >
       SHOW
     </HalfButton>
@@ -30,13 +29,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.container {
-  margin-top: 3em;
-  justify-content: center;
+.leftAlign {
+  text-align: left;
 }
 input.large {
   font-size: 3em !important;
   height: 1.5em !important;
+  text-align: center;
+  width: 100%;
   // background-color: white;
 }
 </style>

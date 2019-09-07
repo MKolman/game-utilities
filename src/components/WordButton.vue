@@ -42,8 +42,8 @@ export default {
         process.env.VUE_APP_BGCOLOR,
         process.env.VUE_APP_THEME,
         "#F1BE51",
-        "#98A352",
-        "#4B9086"
+        "#98A352"
+        // "#4B9086"
       ];
       let section = 0,
         stepsTotal = 100,

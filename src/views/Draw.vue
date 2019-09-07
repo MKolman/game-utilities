@@ -4,15 +4,11 @@
     <md-button
       to="/"
       class="md-icon-button md-primary"
-      style="top: 1em;position: absolute;left: 0.2em;"
+      style="top: 24px; position: absolute;left: 24px; margin-left: 0;"
     >
-      <md-icon class="md-size-3x">close</md-icon>
+      <md-icon class="md-size-2x">close</md-icon>
     </md-button>
-    <md-button
-      @click="undoLine"
-      class="md-fab md-primary"
-      style="bottom: 0;position: absolute;left: 0.5em;"
-    >
+    <md-button @click="undoLine" class="md-fab md-fab-bottom-left md-primary">
       <md-icon class="">undo</md-icon>
     </md-button>
   </div>
