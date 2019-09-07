@@ -14,14 +14,22 @@
           </md-button></md-table-cell
         >
         <md-table-cell
-          ><md-button @click="score.value -= 1" class="cell md-raised">
+          ><ButtonPress
+            @long="score.scoreDialog = true"
+            @click="score.value -= 1"
+            class="cell md-raised"
+          >
             <md-icon>remove</md-icon>
-          </md-button></md-table-cell
+          </ButtonPress></md-table-cell
         >
         <md-table-cell
-          ><md-button @click="score.scoreDialog = true" class="cell md-raised">
+          ><ButtonPress
+            @long="score.scoreDialog = true"
+            @click="score.value += 1"
+            class="cell md-raised"
+          >
             <md-icon>add</md-icon>
-          </md-button></md-table-cell
+          </ButtonPress></md-table-cell
         >
         <ScoreDialog v-bind="score" @close="closeScore(score, $event)" />
         <NameDialog
@@ -50,12 +58,14 @@
 <script>
 import ScoreDialog from "@/components/ScoreDialog.vue";
 import NameDialog from "@/components/NameDialog.vue";
+import ButtonPress from "@/components/ButtonPress.vue";
 import { saveLocal, loadLocal } from "@/data/storage.js";
 export default {
   name: "scores",
   components: {
     ScoreDialog,
-    NameDialog
+    NameDialog,
+    ButtonPress
   },
   computed: {
     openDialog: {
