@@ -50,10 +50,21 @@ export default {
       tempName: ""
     };
   },
+  watch: {
+    name() {
+      this.reset();
+    },
+    nameDialog() {
+      this.reset();
+    }
+  },
   mounted() {
     this.tempName = this.name;
   },
   methods: {
+    reset() {
+      this.tempName = this.name;
+    },
     save() {
       this.$emit("close", this.addition);
     },
