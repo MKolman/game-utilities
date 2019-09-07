@@ -93,8 +93,7 @@ export default {
     }
   },
   methods: {
-    closeScore(score, amount, c) {
-      console.log(c, amount, score);
+    closeScore(score, amount) {
       score.scoreDialog = false;
       if (amount) {
         score.value += amount;
@@ -109,7 +108,6 @@ export default {
     createUser(name) {
       this.newUserDialog = false;
       if (name) {
-        console.log("CREATING", this.scores);
         this.scores.push({
           name: name,
           value: 0,

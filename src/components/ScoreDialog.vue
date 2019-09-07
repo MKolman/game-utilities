@@ -20,9 +20,9 @@
         </md-button>
         <br />
       </span>
-      <md-checkbox class="md-primary" v-model="setDefault"
-        >Set {{ addition }} as default</md-checkbox
-      >
+      <!-- <md-checkbox class="md-primary" v-model="setDefault">
+        Set {{ addition }} as default
+      </md-checkbox> -->
     </md-dialog-content>
     <md-dialog-actions>
       <md-button @click="close()">Close</md-button>
