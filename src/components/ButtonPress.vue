@@ -20,7 +20,6 @@ export default {
   methods: {
     handleMousedown() {
       if (this.timeout === null) {
-        console.log("start");
         this.timeout = setTimeout(() => {
           this.timeout = null;
           this.$emit("long");
@@ -28,7 +27,6 @@ export default {
       }
     },
     handleMouseup() {
-      console.log("end");
       if (this.timeout !== null) {
         this.$emit("click");
         clearTimeout(this.timeout);
