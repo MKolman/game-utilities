@@ -1,16 +1,15 @@
 <template>
-  <div class="home container">
-    <router-link
+  <div class="home md-layout">
+    <HalfButton
       to="/draw"
-      class="btn"
       style="font-family: 'Cookie', Helvetica, sans-serif;"
     >
-      <span>DRAW</span>
-    </router-link>
-    <router-link to="/type" class="btn" style="font-family: 'monospace';">
-      <span>TYPE<span class="blink">|</span></span>
-    </router-link>
-    <h1>
+      DRAW
+    </HalfButton>
+    <HalfButton to="/type" style="font-family: 'monospace';">
+      TYPE<span class="blink">|</span>
+    </HalfButton>
+    <h1 class="md-layout-item md-size-100">
       RANDOM WORD
       <span style="white-space: nowrap">
         <input
@@ -34,26 +33,17 @@
     </h1>
     <WordButton v-bind:list="words[lang]['unique']" txt="UNIQUE" />
     <WordButton v-bind:list="words[lang]['alias']" txt="ALIAS" />
-    <Score />
-    <h1>
-      <router-link to="/rules">Rules</router-link>
-    </h1>
-    <Footer />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Score from "@/components/Score.vue";
-import Footer from "@/components/Footer.vue";
 import WordButton from "@/components/WordButton.vue";
 import words from "@/data/words.json";
 
 export default {
   name: "home",
   components: {
-    Score,
-    Footer,
     WordButton
   },
   data() {
@@ -63,7 +53,9 @@ export default {
     };
   },
   watch: {
-    lang: function() { localStorage.setItem("lang", this.lang); }
+    lang: function() {
+      localStorage.setItem("lang", this.lang);
+    }
   },
   mounted() {
     this.lang = localStorage.getItem("lang") || "en";
@@ -72,48 +64,20 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Cookie");
-// Button
-.btn {
-  // Size
-  width: 49%;
-  height: 1.5em;
-  margin-right: 0.5%;
-  margin-bottom: 0.5em;
-  // Colors
-  background-color: $theme-color;
-  color: white;
-  // Text
-  font-size: 3em;
-  text-decoration: none;
-  // Feel like a button
-  cursor: pointer;
-  border: none;
-  border-radius: 1em;
-  // Make sure the content is center aligned
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  vertical-align: top;
-}
-
-@media screen and (max-width: 800px) {
-  .btn {
-    width: 100%;
-  }
-}
-
 // Lang
 input.lang {
   display: none;
 }
 input[type="radio"].lang + label img {
-  height: 0.5em;
-  border: 3px solid rgba(0, 0, 0, 0);
-  border-radius: 4px;
+  height: 0.6em;
+  // border: 3px solid rgba(0, 0, 0, 0);
+  // border-radius: 4px;
+  opacity: 0.5;
+  margin-left: 0.1em;
 }
 input[type="radio"].lang:checked + label img {
-  border-color: $theme-color;
+  // border-color: $theme-color;
+  opacity: 1;
 }
 
 .blink {

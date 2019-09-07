@@ -6,9 +6,14 @@
       v-bind:class="{ vertical: isVertical }"
       >{{ $route.params.text }}</span
     >
-    <router-link to="/" class="close">
-      <font-awesome-icon icon="times" />
-    </router-link>
+
+    <md-button
+      to="/"
+      class="md-icon-button md-primary"
+      style="top: 1em;position: absolute;left: 0.2em;"
+    >
+      <md-icon class="md-size-3x">close</md-icon>
+    </md-button>
   </div>
 </template>
 
@@ -63,13 +68,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.close {
-  position: absolute;
-  top: 0;
-  left: 0.2em;
-  font-size: 3em;
-  text-decoration: none;
+
+  z-index: 3;
+  background-color: $bg-color;
 }
 .vertical {
   writing-mode: vertical-rl;

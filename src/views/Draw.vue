@@ -1,10 +1,16 @@
 <template>
   <div class="fullscreen">
     <canvas id="canvas"></canvas>
-    <router-link to="/" class="close">
-      <font-awesome-icon icon="times" />
-    </router-link>
-    <a v-on:click="undoLine" class="undo"><font-awesome-icon icon="undo" /></a>
+    <md-button
+      to="/"
+      class="md-icon-button md-primary"
+      style="top: 24px; position: absolute;left: 24px; margin-left: 0;"
+    >
+      <md-icon class="md-size-2x">close</md-icon>
+    </md-button>
+    <md-button @click="undoLine" class="md-fab md-fab-bottom-left md-primary">
+      <md-icon class="">undo</md-icon>
+    </md-button>
   </div>
 </template>
 <script>
@@ -206,27 +212,15 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  z-index: 3;
+  background-color: $bg-color;
   canvas {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-  }
-}
-
-.undo,
-.close {
-  position: absolute;
-  font-size: 3em;
-  text-decoration: none;
-  left: 0.2em;
-  &.undo {
-    bottom: 0;
-    cursor: pointer;
-  }
-  &.close {
-    top: 0;
   }
 }
 </style>

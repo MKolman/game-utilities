@@ -31,6 +31,12 @@ export default new Router({
       meta: { title: "Draw" }
     },
     {
+      path: "/scores",
+      name: "scores",
+      component: () => import("./views/Scores.vue"),
+      meta: { title: "Score" }
+    },
+    {
       path: "/display/:text",
       name: "display",
       component: () => import("./views/Display.vue"),

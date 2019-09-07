@@ -1,7 +1,11 @@
 <template>
-  <button v-on:click="showRandomWord()" class="btn" v-bind:style="style">
-    <span>{{ countdown || txt }}</span>
-  </button>
+  <HalfButton
+    @click="showRandomWord()"
+    style="font-family: 'serif';"
+    :extraStyle="style"
+  >
+    {{ countdown || txt }}
+  </HalfButton>
 </template>
 
 <script>
@@ -34,7 +38,13 @@ export default {
       return collection[Math.floor(Math.random() * collection.length)];
     },
     animateButton: function() {
-      let colors = [process.env.VUE_APP_THEME, "#F1BE51", "#98A352", "#4B9086"];
+      let colors = [
+        process.env.VUE_APP_BGCOLOR,
+        process.env.VUE_APP_THEME,
+        "#F1BE51",
+        "#98A352"
+        // "#4B9086"
+      ];
       let section = 0,
         stepsTotal = 100,
         step = 0;
@@ -61,7 +71,7 @@ export default {
         this.load = 0;
         clearTimeout(this.timeout);
         clearInterval(this.interval);
-        this.colorRight = process.env.VUE_APP_THEME;
+        this.colorRight = process.env.VUE_APP_BGCOLOR;
         this.countdown = null;
         this.timeout = null;
         this.interval = null;
@@ -81,19 +91,12 @@ export default {
   data() {
     return {
       load: 0,
-      colorLeft: "#fdcd3b",
-      colorRight: process.env.VUE_APP_THEME,
+      colorLeft: process.env.VUE_APP_THEME,
+      colorRight: process.env.VUE_APP_BGCOLOR,
       countdown: null,
       timeout: null,
       interval: null
     };
   }
 };
-// background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
 </script>
-
-<style scoped lang="scss">
-.btn {
-  font-family: "serif";
-}
-</style>

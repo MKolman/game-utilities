@@ -4,14 +4,36 @@ import App from "./App.vue";
 import router from "./router";
 import "./registerServiceWorker";
 
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBackward, faTimes, faUndo } from '@fortawesome/free-solid-svg-icons';
-import { faTrashAlt, faClone } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import {
+  MdApp,
+  MdButton,
+  MdCheckbox,
+  MdContent,
+  MdDialog,
+  MdDivider,
+  MdDrawer,
+  MdField,
+  MdIcon,
+  MdList,
+  MdTable,
+  MdToolbar
+} from "vue-material/dist/components";
+import "vue-material/dist/vue-material.min.css";
+Vue.use(MdApp);
+Vue.use(MdButton);
+Vue.use(MdCheckbox);
+Vue.use(MdContent);
+Vue.use(MdDialog);
+Vue.use(MdDivider);
+Vue.use(MdDrawer);
+Vue.use(MdField);
+Vue.use(MdIcon);
+Vue.use(MdList);
+Vue.use(MdTable);
+Vue.use(MdToolbar);
 
-library.add(faTimes, faUndo, faBackward);
-library.add(faTrashAlt, faClone);
-Vue.component('font-awesome-icon', FontAwesomeIcon);
+import HalfButton from "@/components/HalfButton.vue";
+Vue.component("HalfButton", HalfButton);
 
 router.beforeEach((to, from, next) => {
   document.title = process.env.VUE_APP_TITLE + " | " + to.meta.title;
@@ -37,5 +59,8 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: h => h(App)
+  render: h => h(App),
+  data: {
+    menuVisible: false
+  }
 }).$mount("#app");
