@@ -1,7 +1,9 @@
 <template>
   <div id="rules" class="container">
     <Rule v-bind:img="img" v-bind:key="img.id" v-for="img in images" />
-    <HalfButton style="margin-top: 1em;" to="/">Play Now</HalfButton>
+    <HalfButton style="margin-top: 1em;" to="/" :primary="true">
+      Play Now
+    </HalfButton>
   </div>
 </template>
 
@@ -51,8 +53,4 @@ export default {
 body {
   counter-reset: hcounter;
 }
-// h1:before {
-//   content: counter(hcounter) ".\0000a0\0000a0";
-//   counter-increment: hcounter;
-// }
 </style>
