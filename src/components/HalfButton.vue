@@ -2,6 +2,7 @@
   <div class="md-layout-item md-size-50 md-small-size-100">
     <md-button
       class="md-layout-item md-size-95 md-raised"
+      :disabled="disabled"
       :class="{
         'md-size-95': !primary,
         'md-size-100': primary,
@@ -22,6 +23,7 @@ export default {
   props: {
     to: [String, Object],
     primary: Boolean,
+    disabled: Boolean,
     extraStyle: Object
   }
 };

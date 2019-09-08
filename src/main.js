@@ -16,6 +16,7 @@ import {
   MdIcon,
   MdList,
   MdSnackbar,
+  MdSteppers,
   MdSwitch,
   MdTable,
   MdToolbar
@@ -32,6 +33,7 @@ Vue.use(MdField);
 Vue.use(MdIcon);
 Vue.use(MdList);
 Vue.use(MdSnackbar);
+Vue.use(MdSteppers);
 Vue.use(MdSwitch);
 Vue.use(MdTable);
 Vue.use(MdToolbar);

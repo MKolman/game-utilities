@@ -6,20 +6,33 @@
           <md-icon>menu</md-icon>
         </md-button>
         <span class="md-title">Play Now</span>
+        <div v-if="$route.name == 'visionIdentity'" class="md-toolbar-section-end">
+          <md-button style="text-transform: none;" to="/vision/redo">
+            {{ $route.params.room }}
+            {{+$route.params.player+1}}/{{$route.params.number}}
+          </md-button>
+        </div>
       </md-app-toolbar>
 
       <md-app-drawer :md-active.sync="menuVisible" :md-swipeable="true">
         <!-- <md-toolbar class="md-transparent" md-elevation="0">Play Now</md-toolbar> -->
         <md-toolbar class="md-transparent" md-elevation="0">
-          <span @click="menuVisible = !menuVisible" class="md-title"
-            >Play Now</span
-          >
+          <span @click="menuVisible = !menuVisible" class="md-title">
+            Play Now
+          </span>
         </md-toolbar>
 
         <md-list>
           <md-list-item @click="menuVisible = !menuVisible" to="/" exact>
             <md-icon>edit</md-icon>
             <span class="md-list-item-text">Unique</span>
+            <md-button class="md-icon-button" to="/rules"
+              ><md-icon>menu_book</md-icon></md-button
+            >
+          </md-list-item>
+          <md-list-item @click="menuVisible = !menuVisible" to="/vision" exact>
+            <md-icon>visibility</md-icon>
+            <span class="md-list-item-text">Vision</span>
             <md-button class="md-icon-button" to="/rules"
               ><md-icon>menu_book</md-icon></md-button
             >

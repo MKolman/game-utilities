@@ -154,6 +154,8 @@ export default {
   .md-table-cell {
     border: none !important;
     background: none !important;
+    height: 3em;
+    font-size: 1.5em;
   }
   .md-table-cell-container {
     padding: 5px !important;

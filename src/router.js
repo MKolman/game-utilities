@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Home from "./views/unique/Home.vue";
 
 Vue.use(Router);
 
@@ -15,20 +15,26 @@ export default new Router({
     {
       path: "/rules",
       name: "rules",
-      component: () => import("./views/Rules.vue"),
+      component: () => import("./views/unique/Rules.vue"),
       meta: { title: "Rules" }
     },
     {
       path: "/type",
       name: "type",
-      component: () => import("./views/Type.vue"),
+      component: () => import("./views/unique/Type.vue"),
       meta: { title: "Type" }
     },
     {
       path: "/draw",
       name: "draw",
-      component: () => import("./views/Draw.vue"),
+      component: () => import("./views/unique/Draw.vue"),
       meta: { title: "Draw" }
+    },
+    {
+      path: "/display/:text",
+      name: "display",
+      component: () => import("./views/unique/Display.vue"),
+      meta: { title: "Display" }
     },
     {
       path: "/scores",
@@ -47,6 +53,18 @@ export default new Router({
       name: "about",
       component: () => import("./views/About.vue"),
       meta: { title: "About" }
+    },
+    {
+      path: "/vision/:redo?",
+      name: "visionHome",
+      component: () => import("./views/vision/Home.vue"),
+      meta: { title: "Select room" }
+    },
+    {
+      path: "/visid/:room/:number/:player",
+      name: "visionIdentity",
+      component: () => import("./views/vision/Identity.vue"),
+      meta: { title: "Vision" }
     }
   ]
 });
