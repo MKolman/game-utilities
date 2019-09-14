@@ -15,6 +15,7 @@ import {
   MdField,
   MdIcon,
   MdList,
+  MdSwitch,
   MdTable,
   MdToolbar
 } from "vue-material/dist/components";
@@ -29,6 +30,7 @@ Vue.use(MdDrawer);
 Vue.use(MdField);
 Vue.use(MdIcon);
 Vue.use(MdList);
+Vue.use(MdSwitch);
 Vue.use(MdTable);
 Vue.use(MdToolbar);
 

@@ -28,6 +28,10 @@
             <md-icon>format_list_numbered</md-icon>
             <span class="md-list-item-text">Score</span>
           </md-list-item>
+          <md-list-item @click="toggleNoSleep">
+            <md-switch v-model="keepAwake" class="md-primary"></md-switch>
+            <span class="md-list-item-text">Keep awake</span>
+          </md-list-item>
 
           <md-divider></md-divider>
           <md-divider></md-divider>
@@ -53,12 +57,25 @@
   </div>
 </template>
 <script>
+import * as NoSleep from "nosleep.js";
 export default {
   name: "app",
   data() {
     return {
-      menuVisible: false
+      menuVisible: false,
+      keepAwake: false,
+      nosleep: new NoSleep()
     };
+  },
+  methods: {
+    toggleNoSleep() {
+      this.keepAwake = !this.keepAwake;
+      if (this.keepAwake) {
+        this.nosleep.enable();
+      } else {
+        this.nosleep.disable();
+      }
+    }
   }
 };
 </script>
