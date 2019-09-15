@@ -48,9 +48,11 @@ export default {
   methods: {
     save() {
       this.$emit("close", this.addition);
+      this.addition = 0;
     },
     close() {
       this.$emit("close");
+      this.addition = 0;
     }
   }
 };
