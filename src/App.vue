@@ -36,6 +36,12 @@
           <md-divider></md-divider>
           <md-divider></md-divider>
 
+          <md-list-item
+            v-if="installPrompt !== null"
+            @click="installPrompt.prompt()"
+          >
+            <md-icon>cloud_download</md-icon>
+            <span class="md-list-item-text">Install</span>
           </md-list-item>
 
           <md-list-item to="/about">
@@ -59,8 +65,17 @@ export default {
     return {
       menuVisible: false,
       keepAwake: false,
+      installPrompt: null,
       nosleep: new NoSleep()
     };
+  },
+  mounted() {
+    window.addEventListener("beforeinstallprompt", e => {
+      // Prevent Chrome 76 and later from showing the mini-infobar
+      e.preventDefault();
+      // Stash the event so it can be triggered later.
+      this.installPrompt = e;
+    });
   },
   methods: {
     toggleNoSleep() {
