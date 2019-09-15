@@ -15,6 +15,7 @@
         >
         <md-table-cell
           ><ButtonPress
+            @spam="showScoreHint = true"
             @long="score.scoreDialog = true"
             @click="score.value -= 1"
             class="cell md-raised"
@@ -24,6 +25,7 @@
         >
         <md-table-cell
           ><ButtonPress
+            @spam="showScoreHint = true"
             @long="score.scoreDialog = true"
             @click="score.value += 1"
             class="cell md-raised"
@@ -52,6 +54,23 @@
       :isNew="true"
       @close="createUser($event)"
     />
+    <md-snackbar
+      md-position="center"
+      :md-duration="5000"
+      :md-active.sync="showScoreHint"
+      md-persistent
+    >
+      <span>
+        You can long press
+        <md-icon class="md-primary">add</md-icon>
+        and
+        <md-icon class="md-primary">remove</md-icon>
+        buttons to make bigger changes!
+      </span>
+      <md-button class="md-primary" @click="showScoreHint = false"
+        >Got it</md-button
+      >
+    </md-snackbar>
   </div>
 </template>
 
@@ -82,7 +101,8 @@ export default {
   data() {
     return {
       scores: [],
-      newUserDialog: false
+      newUserDialog: false,
+      showScoreHint: false
     };
   },
   mounted() {

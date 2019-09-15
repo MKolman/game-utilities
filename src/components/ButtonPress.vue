@@ -14,11 +14,25 @@ export default {
   name: "ButtonPress",
   data() {
     return {
-      timeout: null
+      timeout: null,
+      pressTimes: []
     };
   },
   methods: {
+    handleSpam() {
+      let now = new Date();
+      this.pressTimes.push(now);
+      if (this.pressTimes.length > 10) {
+        if (now - this.pressTimes[0] < 5000) {
+          this.$emit("spam");
+          this.pressTimes = [];
+        } else {
+          this.pressTimes.splice(0, 1);
+        }
+      }
+    },
     handleMousedown() {
+      this.handleSpam();
       if (this.timeout === null) {
         this.timeout = setTimeout(() => {
           this.timeout = null;
