@@ -41,6 +41,12 @@ export default new Router({
       name: "display",
       component: () => import("./views/Display.vue"),
       meta: { title: "Display" }
+    },
+    {
+      path: "/about",
+      name: "about",
+      component: () => import("./views/About.vue"),
+      meta: { title: "About" }
     }
   ]
 });

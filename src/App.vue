@@ -36,16 +36,11 @@
           <md-divider></md-divider>
           <md-divider></md-divider>
 
-          <md-list-item href="https://github.com/MKolman/game-utilities">
-            <md-icon>launch</md-icon>
-            <span class="md-list-item-text">Hosted on Github</span>
           </md-list-item>
-          <md-list-item href="https://www.kolman.si">
-            <md-icon>launch</md-icon>
-            <span class="md-list-item-text">Home Page</span>
-          </md-list-item>
-          <md-list-item>
-            <span class="md-list-item-text">Made by Maks Kolman</span>
+
+          <md-list-item to="/about">
+            <md-icon>info</md-icon>
+            <span class="md-list-item-text">About</span>
           </md-list-item>
         </md-list>
       </md-app-drawer>

@@ -47,7 +47,6 @@ export default {
     };
   }
 };
-//   rules:
 </script>
 <style lang="scss">
 body {
