@@ -44,7 +44,7 @@
             <span class="md-list-item-text">Install</span>
           </md-list-item>
 
-          <md-list-item to="/about">
+          <md-list-item @click="menuVisible = !menuVisible" to="/about">
             <md-icon>info</md-icon>
             <span class="md-list-item-text">About</span>
           </md-list-item>
