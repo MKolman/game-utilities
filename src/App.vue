@@ -40,9 +40,9 @@
           <md-list-item @click="menuVisible = !menuVisible" to="/bombs" exact>
             <md-icon>new_releases</md-icon>
             <span class="md-list-item-text">Bombs</span>
-            <md-button class="md-icon-button" to="/rules">
+            <!-- <md-button class="md-icon-button" to="/rules">
               <md-icon>menu_book</md-icon>
-            </md-button>
+            </md-button> -->
           </md-list-item>
           <md-list-item @click="menuVisible = !menuVisible" to="/scores">
             <md-icon>format_list_numbered</md-icon>

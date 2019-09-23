@@ -10,6 +10,7 @@ import {
   MdCheckbox,
   MdContent,
   MdDialog,
+  MdDialogConfirm,
   MdDivider,
   MdDrawer,
   MdField,
@@ -27,6 +28,7 @@ Vue.use(MdButton);
 Vue.use(MdCheckbox);
 Vue.use(MdContent);
 Vue.use(MdDialog);
+Vue.use(MdDialogConfirm);
 Vue.use(MdDivider);
 Vue.use(MdDrawer);
 Vue.use(MdField);

@@ -1,17 +1,21 @@
 <template>
   <div class="container">
-    <CardStack v-bind:cardValues="stack" @undo="reduceStack"/>
+    <CardStack v-bind:cardValues="stack" @undo="reduceStack" />
     <div class="bottom">
       <div class="card-display">
         <div
           class="card square md-elevation-2"
-          v-on:click="stackCard(index)"
+          :class="{ wiggle: isRemove }"
+          @click="isRemove ? openDeleteDialog(index) : stackCard(index)"
           v-for="(card, index) in cards"
-          v-bind:key="index"
-          v-bind:style="{transform: `rotate(${cardRot}turn)`}"
+          :key="index"
+          :style="{ transform: `rotate(${cardRot}turn)` }"
         >
-          <md-icon class="md-size-3x" v-if="isVisible">
-            {{['emoji_nature', 'new_releases'][+card.isBomb]}}
+          <md-icon class="md-size-3x" v-if="isVisible && !isRemove">
+            {{ ["emoji_nature", "new_releases"][+card.isBomb] }}
+          </md-icon>
+          <md-icon class="md-size-3x" v-if="isRemove">
+            delete
           </md-icon>
         </div>
       </div>
@@ -21,25 +25,45 @@
           v-on:touchend="touchend"
           v-on:click="click"
           style="margin-left: 0;"
-          :class="{'md-primary': isVisible}"
+          :class="{ 'md-primary': isVisible }"
           class="md-icon-button md-raised"
         >
           <md-icon>visibility</md-icon>
         </md-button>
-        <md-button
-          v-on:click="shuffle"
-          class="md-icon-button md-raised"
-        >
+        <md-button v-on:click="shuffle" class="md-icon-button md-raised">
           <md-icon>shuffle</md-icon>
         </md-button>
         <md-button
-          v-on:click="reset"
+          v-on:click="resetDialog = true"
           class="md-icon-button md-raised"
         >
           <md-icon>autorenew</md-icon>
         </md-button>
+        <md-button
+          v-on:click="isRemove = !isRemove"
+          :class="{ 'md-primary': isRemove }"
+          class="md-icon-button md-raised"
+        >
+          <md-icon>delete</md-icon>
+        </md-button>
       </div>
     </div>
+    <md-dialog-confirm
+      :md-active.sync="deleteDialog.active"
+      md-title="Delete card?"
+      md-confirm-text="Delete"
+      md-cancel-text="Cancel"
+      @md-cancel="deleteDialog.active = false"
+      @md-confirm="deleteCard(deleteDialog.index)"
+    />
+    <md-dialog-confirm
+      :md-active.sync="resetDialog"
+      md-title="Reset game?"
+      md-confirm-text="Reset"
+      md-cancel-text="Cancel"
+      @md-cancel="resetDialog = false"
+      @md-confirm="reset"
+    />
   </div>
 </template>
 
@@ -55,27 +79,16 @@ export default {
     return {
       stack: [],
       isVisible: false,
+      isRemove: false,
       isTouch: false,
+      resetDialog: false,
+      deleteDialog: {
+        active: false,
+        index: 0
+      },
       cardRot: 0,
-      cards: [
-        {
-          isBomb: false,
-          stackIndex: null,
-        },
-        {
-          isBomb: false,
-          stackIndex: null,
-        },
-        {
-          isBomb: true,
-          stackIndex: null,
-        },
-        {
-          isBomb: false,
-          stackIndex: null,
-        }
-      ]
-    }
+      cards: []
+    };
   },
   methods: {
     reduceStack: function() {
@@ -87,6 +100,14 @@ export default {
       this.stack.push(this.cards[index]);
       this.cards.splice(index, 1);
     },
+    openDeleteDialog: function(index) {
+      this.deleteDialog.active = true;
+      this.deleteDialog.index = index;
+    },
+    deleteCard: function(index) {
+      this.cards.splice(index, 1);
+      this.isRemove = false;
+    },
     shuffle: function() {
       this.cardRot += 2;
       for (let i = 0; i < this.cards.length; i++) {
@@ -95,9 +116,12 @@ export default {
       }
     },
     reset: function() {
-      for (let i = 0; i < this.stack.length; i++) {
-        this.cards.push(this.stack[i]);
-      }
+      this.cards = [
+        { isBomb: false, stackIndex: null },
+        { isBomb: false, stackIndex: null },
+        { isBomb: true, stackIndex: null },
+        { isBomb: false, stackIndex: null }
+      ];
       this.stack = [];
     },
     touchstart: function() {
@@ -112,6 +136,9 @@ export default {
         this.isVisible = !this.isVisible;
       }
     }
+  },
+  mounted: function() {
+    this.reset();
   }
 };
 </script>
@@ -134,10 +161,10 @@ export default {
     width: 45%;
     margin: 0;
     margin-right: 5%;
-    margin-bottom: 5%;
+    margin-bottom: 2.5%;
+    margin-top: 2.5%;
 
-
-    $back-color: #F1BE51;
+    $back-color: #f1be51;
     // border: solid $back-color 5px;
     border-radius: 1em;
     background-color: $back-color;
@@ -168,6 +195,29 @@ export default {
       width: 85%;
       height: unset;
     }
+  }
+}
+
+.wiggle {
+  animation-duration: 0.1s;
+  animation-name: wiggle;
+  animation-iteration-count: infinite;
+  // animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes wiggle {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(1deg);
+  }
+  75% {
+    -webkit-transform: rotate(-1deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
   }
 }
 </style>

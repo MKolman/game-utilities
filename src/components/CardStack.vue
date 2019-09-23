@@ -2,10 +2,14 @@
   <div class="card-stack">
     <div
       class="square card-back md-elevation-3"
-      :style="{transform: getTransform(card), zIndex: card.open?stack.length-index:undefined}"
+      :style="{
+        transform: getTransform(card),
+        zIndex: card.open ? stack.length - index : undefined
+      }"
       :key="index"
-      :class="{left: !card.open && isOpening, right: card.open}"
-      v-for="(card, index) in stack">
+      :class="{ left: !card.open && isOpening, right: card.open }"
+      v-for="(card, index) in stack"
+    >
       <div class="absolute-fill">
         <md-button
           class="md-icon-button md-size-3x"
@@ -14,11 +18,8 @@
         >
           <md-icon class="md-size-3x">visibility</md-icon>
         </md-button>
-        <md-icon
-          v-if="card.open"
-          class="md-size-3x"
-        >
-          {{['emoji_nature', 'new_releases'][+cardValues[index].isBomb]}}
+        <md-icon v-if="card.open" class="md-size-3x">
+          {{ ["emoji_nature", "new_releases"][+cardValues[index].isBomb] }}
         </md-icon>
         <md-button class="md-icon-button md-size-3x" @click="$emit('undo')">
           <md-icon class="md-size-3x">undo</md-icon>
@@ -44,23 +45,23 @@ export default {
         result = this.stack[i].open || result;
       }
       return result;
-    },
+    }
   },
   watch: {
     size: function(n) {
       while (n > this.stack.length) {
         this.stack.push({
           open: false,
-          angle: 20*Math.random() - 10,
-          translateX: Math.ceil(20*Math.random() - 10),
-          translateY: Math.ceil(20*Math.random() - 10)
+          angle: 20 * Math.random() - 10,
+          translateX: Math.ceil(20 * Math.random() - 10),
+          translateY: Math.ceil(20 * Math.random() - 10)
         });
-        let card = this.stack[this.stack.length-1];
+        let card = this.stack[this.stack.length - 1];
         setTimeout(() => {
-          card.angle += 20*Math.random() - 10;
-          card.translateX += Math.ceil(20*Math.random() - 10);
-          card.translateY -= Math.ceil(10*Math.random());
-        }, 10)
+          card.angle += 20 * Math.random() - 10;
+          card.translateX += Math.ceil(20 * Math.random() - 10);
+          card.translateY -= Math.ceil(10 * Math.random());
+        }, 10);
       }
       while (n < this.stack.length) {
         this.stack.pop();
@@ -70,14 +71,14 @@ export default {
   data() {
     return {
       stack: []
-    }
+    };
   },
   methods: {
     getTransform(card) {
       let x = `rotate(${card.angle}deg) translate(${card.translateX}%, ${card.translateY}%)`;
       // let x = `rotate(${card.angle}deg)`;
       console.log("aa", this.isOpening);
-      return x
+      return x;
     }
   }
 };
@@ -108,7 +109,7 @@ export default {
   left: 25%;
   margin-top: 0;
 
-  $back-color: #F1BE51;
+  $back-color: #f1be51;
   border: solid $back-color 5px;
   border-radius: 1em;
   background-color: $back-color;
