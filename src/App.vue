@@ -6,10 +6,13 @@
           <md-icon>menu</md-icon>
         </md-button>
         <span class="md-title">Play Now</span>
-        <div v-if="$route.name == 'visionIdentity'" class="md-toolbar-section-end">
+        <div
+          v-if="$route.name == 'visionIdentity'"
+          class="md-toolbar-section-end"
+        >
           <md-button style="text-transform: none;" to="/vision/redo">
             {{ $route.params.room }}
-            {{+$route.params.player+1}}/{{$route.params.number}}
+            {{ +$route.params.player + 1 }}/{{ $route.params.number }}
           </md-button>
         </div>
       </md-app-toolbar>

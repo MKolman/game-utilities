@@ -75,10 +75,7 @@ export default {
   },
   methods: {
     getTransform(card) {
-      let x = `rotate(${card.angle}deg) translate(${card.translateX}%, ${card.translateY}%)`;
-      // let x = `rotate(${card.angle}deg)`;
-      console.log("aa", this.isOpening);
-      return x;
+      return `rotate(${card.angle}deg) translate(${card.translateX}%, ${card.translateY}%)`;
     }
   }
 };
