@@ -33,13 +33,13 @@
               <md-icon>menu_book</md-icon>
             </md-button>
           </md-list-item>
-          <md-list-item @click="menuVisible = !menuVisible" to="/vision" exact>
+          <!-- <md-list-item @click="menuVisible = !menuVisible" to="/vision" exact>
             <md-icon>visibility</md-icon>
             <span class="md-list-item-text">Vision</span>
             <md-button class="md-icon-button" to="/rules">
               <md-icon>menu_book</md-icon>
             </md-button>
-          </md-list-item>
+          </md-list-item> -->
           <md-list-item @click="menuVisible = !menuVisible" to="/bombs" exact>
             <md-icon>new_releases</md-icon>
             <span class="md-list-item-text">Bombs</span>
