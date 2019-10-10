@@ -31,34 +31,53 @@
         /><label for="lang-si"><img src="img/si_flag.svg" alt="si"/></label>
       </span>
     </h1>
-    <WordButton v-bind:list="words[lang]['unique']" txt="UNIQUE" />
-    <WordButton v-bind:list="words[lang]['alias']" txt="ALIAS" />
+    <WordButton
+      :list="words[lang]"
+      :selected="selectedWords[lang]"
+      txt="SHOW"
+    />
+
+    <Dropdown v-model="selectedWords[lang]" :options="words[lang]" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import WordButton from "@/components/WordButton.vue";
-import words from "@/data/words.json";
+import Dropdown from "@/components/Dropdown.vue";
+import words from "@/data/wordlist/data.json";
+import { saveLocal, loadLocal } from "@/data/storage.js";
 
 export default {
   name: "home",
   components: {
-    WordButton
+    WordButton,
+    Dropdown
   },
   data() {
     return {
       lang: "en",
-      words: words
+      words: words,
+      selectedWords: { si: ["unique", "alias"], en: ["unique", "alias"] }
     };
   },
   watch: {
     lang: function() {
       localStorage.setItem("lang", this.lang);
+    },
+    selectedWords: {
+      handler: function() {
+        saveLocal("selectedWords", this.selectedWords);
+      },
+      deep: true
     }
   },
   mounted() {
     this.lang = localStorage.getItem("lang") || "en";
+    this.selectedWords = loadLocal("selectedWords", {
+      si: ["unique", "alias"],
+      en: ["unique", "alias"]
+    });
   }
 };
 </script>

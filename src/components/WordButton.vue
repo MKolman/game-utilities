@@ -14,7 +14,8 @@ import router from "@/router.js";
 export default {
   name: "WordButton",
   props: {
-    list: Array,
+    list: Object,
+    selected: Array,
     txt: String
   },
   computed: {
@@ -34,7 +35,12 @@ export default {
     }
   },
   methods: {
-    randomElement: function(collection) {
+    randomElement: function() {
+      let collection = [];
+      for (let i = 0; i < this.selected.length; i++) {
+        collection = collection.concat(this.list[this.selected[i]]);
+      }
+      if (collection.length == 0) return "Whoops";
       return collection[Math.floor(Math.random() * collection.length)];
     },
     animateButton: function() {
@@ -81,7 +87,7 @@ export default {
         router.push({
           name: "display",
           params: {
-            text: this.randomElement(this.list)
+            text: this.randomElement()
           }
         });
       }, 3000);
