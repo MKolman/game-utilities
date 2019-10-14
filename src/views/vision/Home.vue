@@ -11,7 +11,10 @@
               selected.room = name;
               currentStep = 'numberStep';
             "
-            :extraStyle="{'text-transform': 'none', 'font-family': 'monospace'}"
+            :extraStyle="{
+              'text-transform': 'none',
+              'font-family': 'monospace'
+            }"
           >
             {{ name }}
           </HalfButton>

@@ -1,8 +1,7 @@
-const alphabet = ("abcdefghijklmnopqrstuvwxyz" +
-                  "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
-                  "0123456789");
+const alphabet =
+  "abcdefghijklmnopqrstuvwxyz" + "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789";
 
-function  random(seed) {
+function random(seed) {
   // Robert Jenkins’ 32 bit integer hash function
   seed = (seed + 0x7ed55d16 + (seed << 12)) & 0xffffffff;
   seed = (seed ^ 0xc761c23c ^ (seed >>> 19)) & 0xffffffff;
@@ -11,7 +10,7 @@ function  random(seed) {
   seed = (seed + 0xfd7046c5 + (seed << 3)) & 0xffffffff;
   seed = (seed ^ 0xb55a4f09 ^ (seed >>> 16)) & 0xffffffff;
   return seed & 0xfffffff;
-};
+}
 
 function roomToSeed(roomName) {
   let result = 0;
