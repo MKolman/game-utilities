@@ -4,22 +4,48 @@ node_js:
 cache:
   directories:
   - node_modules
-script:
-  - npm run build:staging
-  - npm run build
-deploy:
-  - provider: pages
-    repo: mkolman/game-utilities-staging
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    local_dir: dist_staging
-    keep_history: true
-    on:
-      branch: staging
-  - provider: pages
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    local_dir: dist
-    keep_history: true
-    on:
-      branch: master
+
+stages:
+  - lint
+  - build
+  - name: staging
+    if: branch = staging
+  - name: deploy
+    if: branch = master
+
+jobs:
+  include:
+    - stage: lint
+      name: Lint
+      script: npx vue-cli-service lint --no-fix --max-warnings 0 --max-errors 0
+    - stage: build
+      name: "Build staging"
+      script: npm run build:staging
+    - stage: build
+      name: "Build production"
+      script: npm run build
+    - stage: staging
+      name: "Deploy staging"
+      script:
+        - npm run build:staging
+      deploy:
+        provider: pages
+        repo: mkolman/game-utilities-staging
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: dist_staging
+        keep_history: true
+        on:
+          branch: staging
+    - stage: deploy
+      name: "Deploy production"
+      script:
+        - npm run build
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: dist
+        keep_history: true
+        on:
+          branch: master
