@@ -1,6 +1,6 @@
 {
   "name": "game-utilities",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "staging": "vue-cli-service build --mode staging && gh-pages -d dist --remote staging",

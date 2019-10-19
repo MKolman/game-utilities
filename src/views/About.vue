@@ -4,10 +4,10 @@
     <p>
       This app is
       <a href="https://github.com/MKolman/game-utilities"> hosted on github </a>
-      under a GPL license.
+      under a GPL license. App version is {{ version }}.
     </p>
     <p>
-      It was developed by Maks Kolman. Visit my home page at
+      Made by Maks Kolman. Home page at
       <a href="https://www.kolman.si">kolman.si</a>.
     </p>
   </div>
@@ -15,6 +15,11 @@
 
 <script>
 export default {
-  name: "about"
+  name: "about",
+  data() {
+    return {
+      version: process.env.VUE_APP_VERSION
+    };
+  }
 };
 </script>

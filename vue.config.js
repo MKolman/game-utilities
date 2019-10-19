@@ -1,3 +1,6 @@
+// Inject version
+process.env.VUE_APP_VERSION = require("./package.json").version;
+
 module.exports = {
   publicPath: process.env.BASE_URL,
 
@@ -12,6 +15,7 @@ $bg-color: ${process.env.VUE_APP_BGCOLOR};`
   },
 
   pwa: {
+    assetsVersion: require("./package.json").version,
     themeColor: process.env.VUE_APP_THEME,
     name: process.env.VUE_APP_TITLE,
     msTileColor: process.env.VUE_APP_BGCOLOR,
