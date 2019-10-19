@@ -8,6 +8,7 @@ cache:
 stages:
   - lint
   - build
+  - test
   - name: staging
     if: branch = staging
   - name: deploy
@@ -24,6 +25,9 @@ jobs:
     - stage: build
       name: "Build production"
       script: npm run build
+    - stage: test
+      name: "Unit tests"
+      script: npm run test:unit
     - stage: staging
       name: "Deploy staging"
       script:

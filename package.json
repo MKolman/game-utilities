@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "staging": "vue-cli-service build --mode staging && gh-pages -d dist --remote staging",
-    "deploy": "vue-cli-service build && gh-pages -d dist",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint",
+    "deploy": "vue-cli-service build && gh-pages -d dist",
     "build:staging": "vue-cli-service build --mode staging --dest dist_staging",
-    "lint": "vue-cli-service lint"
+    "staging": "vue-cli-service build --mode staging && gh-pages -d dist --remote staging"
   },
   "dependencies": {
     "core-js": "^2.6.5",
@@ -24,8 +25,10 @@
     "@vue/cli-plugin-babel": "^3.10.0",
     "@vue/cli-plugin-eslint": "^3.10.0",
     "@vue/cli-plugin-pwa": "^4.0.0-rc.0",
+    "@vue/cli-plugin-unit-jest": "^4.0.4",
     "@vue/cli-service": "^4.0.0-rc.0",
     "@vue/eslint-config-prettier": "^5.0.0",
+    "@vue/test-utils": "1.0.0-beta.29",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.0",
