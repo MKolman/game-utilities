@@ -5,6 +5,11 @@ cache:
   directories:
   - node_modules
 
+addons:
+  apt:
+    packages:
+    - libgconf-2-4
+
 stages:
   - lint
   - build
@@ -28,6 +33,9 @@ jobs:
     - stage: test
       name: "Unit tests"
       script: npm run test:unit
+    - stage: test
+      name: "E2E tests"
+      script: npm run test:e2e
     - stage: staging
       name: "Deploy staging"
       script:
