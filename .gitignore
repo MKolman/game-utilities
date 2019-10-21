@@ -21,3 +21,4 @@ yarn-error.log*
 *.sw?
 /game-utilities.sublime-project
 /game-utilities.sublime-workspace
+/tests/e2e/videos/*.mp4
