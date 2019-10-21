@@ -114,7 +114,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Cookie");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 @import "~vue-material/dist/theme/engine"; // Import the theme engine
