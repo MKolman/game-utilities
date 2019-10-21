@@ -14,16 +14,12 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/game-utilities/precache-manifest.f69bc7c4296179b040f5f6f45449ee04.js"
+  "/game-utilities/precache-manifest.6ae79a8fcc8f821fa52efcda92e6a18b.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "game-utilities"});
 
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
-});
+workbox.core.skipWaiting();
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
