@@ -55,6 +55,9 @@ $bg-color: ${process.env.VUE_APP_BGCOLOR};`
       ],
       start_url: "./index.html?utm_src=pwa",
       orientation: "natural"
+    },
+    workboxOptions: {
+      skipWaiting: true
     }
   }
 };
