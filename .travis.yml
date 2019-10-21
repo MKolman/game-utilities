@@ -11,8 +11,6 @@ addons:
     - libgconf-2-4
 
 stages:
-  - lint
-  - build
   - test
   - name: staging
     if: branch = staging
@@ -21,13 +19,13 @@ stages:
 
 jobs:
   include:
-    - stage: lint
+    - stage: test
       name: Lint
       script: npx vue-cli-service lint --no-fix --max-warnings 0 --max-errors 0
-    - stage: build
+    - stage: test
       name: "Build staging"
       script: npm run build:staging
-    - stage: build
+    - stage: test
       name: "Build production"
       script: npm run build
     - stage: test
