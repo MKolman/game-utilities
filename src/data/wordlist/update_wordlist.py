@@ -6,11 +6,12 @@ def build_result_json():
     for path, subfolders, files in os.walk('.'):
         if path == '.':
             continue
-        key = path[2:] if path.startswith("./") else path
-        result[key] = {}
+        _, lang, key_prefix = (path + '/').split('/', 2)
+        if lang not in result:
+            result[lang] = {}
         for filename in filter(lambda x: x.endswith('.txt'), files):
             rows = open(os.path.join(path, filename)).readlines()
-            result[key][filename[:-4]] = [row.strip() for row in rows]
+            result[lang][f'{key_prefix}{filename}'] = [row.strip() for row in rows]
     return result
 
 def create_json_file():
