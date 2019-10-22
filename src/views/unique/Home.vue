@@ -1,14 +1,7 @@
 <template>
   <div class="home md-layout">
-    <HalfButton
-      to="/draw"
-      style="font-family: 'Cookie', Helvetica, sans-serif;"
-    >
-      DRAW
-    </HalfButton>
-    <HalfButton to="/type" style="font-family: 'monospace';">
-      TYPE<span class="blink">|</span>
-    </HalfButton>
+    <HalfButton to="/draw"> DRAW </HalfButton>
+    <HalfButton to="/type"> TYPE </HalfButton>
     <h1 class="md-layout-item md-size-100">
       RANDOM WORD
       <span style="white-space: nowrap">
@@ -97,28 +90,5 @@ input[type="radio"].lang + label img {
 input[type="radio"].lang:checked + label img {
   // border-color: $theme-color;
   opacity: 1;
-}
-
-.blink {
-  animation-duration: 0.8s;
-  animation-name: blink;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-timing-function: ease-in-out;
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  51% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 </style>

@@ -1,9 +1,5 @@
 <template>
-  <HalfButton
-    @click="showRandomWord()"
-    style="font-family: 'serif';"
-    :extraStyle="style"
-  >
+  <HalfButton @click="showRandomWord()" :extraStyle="style">
     {{ countdown || txt }}
   </HalfButton>
 </template>
