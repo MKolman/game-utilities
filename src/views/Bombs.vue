@@ -21,6 +21,7 @@
       </div>
       <div class="toolbox">
         <md-button
+          title="Show cards"
           v-on:touchstart="touchstart"
           v-on:touchend="touchend"
           v-on:click="click"
@@ -30,16 +31,22 @@
         >
           <md-icon>visibility</md-icon>
         </md-button>
-        <md-button v-on:click="shuffle" class="md-icon-button md-raised">
+        <md-button
+          title="Shuffle cards"
+          v-on:click="shuffle"
+          class="md-icon-button md-raised"
+        >
           <md-icon>shuffle</md-icon>
         </md-button>
         <md-button
+          title="Reset game"
           v-on:click="resetDialog = true"
           class="md-icon-button md-raised"
         >
           <md-icon>autorenew</md-icon>
         </md-button>
         <md-button
+          title="Remove card"
           v-on:click="isRemove = !isRemove"
           :class="{ 'md-primary': isRemove }"
           class="md-icon-button md-raised"

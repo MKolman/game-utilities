@@ -12,6 +12,7 @@
     >
       <div class="absolute-fill">
         <md-button
+          title="Reveal card"
           class="md-icon-button md-size-3x"
           @click="card.open = true"
           v-if="!card.open"
@@ -21,7 +22,11 @@
         <md-icon v-if="card.open" class="md-size-3x">
           {{ ["emoji_nature", "new_releases"][+cardValues[index].isBomb] }}
         </md-icon>
-        <md-button class="md-icon-button md-size-3x" @click="$emit('undo')">
+        <md-button
+          title="Return card"
+          class="md-icon-button md-size-3x"
+          @click="$emit('undo')"
+        >
           <md-icon class="md-size-3x">undo</md-icon>
         </md-button>
       </div>
