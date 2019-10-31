@@ -27,10 +27,17 @@
     <WordButton
       :list="words[lang]"
       :selected="selectedWords[lang]"
+      @empty="dropdownShadowSize = 20"
+      @success="dropdownShadowSize = 0"
       txt="SHOW"
     />
 
-    <Dropdown v-model="selectedWords[lang]" :options="words[lang]" />
+    <Dropdown
+      style="transition: box-shadow 0.2s"
+      :style="{ boxShadow: dropdownBoxShadow }"
+      v-model="selectedWords[lang]"
+      :options="words[lang]"
+    />
   </div>
 </template>
 
@@ -41,6 +48,10 @@ import Dropdown from "@/components/Dropdown.vue";
 import words from "@/data/wordlist/data.json";
 import { saveLocal, loadLocal } from "@/data/storage.js";
 
+let selectedWordsDefault = {
+  si: ["unique.txt", "alias.txt"],
+  en: ["unique.txt", "vision.txt", "alias/classic.txt", "alias/duet.txt"]
+};
 export default {
   name: "home",
   components: {
@@ -51,7 +62,8 @@ export default {
     return {
       lang: "en",
       words: words,
-      selectedWords: { si: ["unique", "alias"], en: ["unique", "alias"] }
+      selectedWords: loadLocal("selectedWords", selectedWordsDefault),
+      dropdownShadowSize: 0
     };
   },
   watch: {
@@ -65,12 +77,19 @@ export default {
       deep: true
     }
   },
+  computed: {
+    dropdownBoxShadow() {
+      return (
+        process.env.VUE_APP_THEME +
+        " 0px 0px " +
+        this.dropdownShadowSize +
+        "px 0px"
+      );
+    }
+  },
   mounted() {
     this.lang = localStorage.getItem("lang") || "en";
-    this.selectedWords = loadLocal("selectedWords", {
-      si: ["unique", "alias"],
-      en: ["unique", "alias"]
-    });
+    this.selectedWords = loadLocal("selectedWords", selectedWordsDefault);
   }
 };
 </script>
