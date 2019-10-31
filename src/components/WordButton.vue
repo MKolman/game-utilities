@@ -34,9 +34,11 @@ export default {
     randomElement: function() {
       let collection = [];
       for (let i = 0; i < this.selected.length; i++) {
-        collection = collection.concat(this.list[this.selected[i]]);
+        if (this.selected[i] in this.list) {
+          collection = collection.concat(this.list[this.selected[i]]);
+        }
       }
-      if (collection.length == 0) return "Whoops";
+      if (collection.length == 0) return null;
       return collection[Math.floor(Math.random() * collection.length)];
     },
     animateButton: function() {
@@ -69,6 +71,13 @@ export default {
       }, 3000 / stepsTotal);
     },
     showRandomWord: function() {
+      let word = this.randomElement();
+      if (word === null) {
+        this.$emit("empty");
+        return;
+      }
+      this.$emit("success");
+
       if (this.timeout) {
         this.load = 0;
         clearTimeout(this.timeout);
@@ -83,7 +92,7 @@ export default {
         router.push({
           name: "display",
           params: {
-            text: this.randomElement()
+            text: word + ""
           }
         });
       }, 3000);
