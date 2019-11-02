@@ -65,6 +65,12 @@ export default new Router({
       name: "bombs",
       component: () => import("./views/bombs/Home.vue"),
       meta: { title: "Bombs" }
+    },
+    {
+      path: "/bombs/rules",
+      name: "bombRules",
+      component: () => import("./views/bombs/Rules.vue"),
+      meta: { title: "Bomb Rules" }
     }
   ]
 });
