@@ -63,7 +63,7 @@ export default new Router({
     {
       path: "/bombs",
       name: "bombs",
-      component: () => import("./views/Bombs.vue"),
+      component: () => import("./views/bombs/Home.vue"),
       meta: { title: "Bombs" }
     }
   ]
