@@ -61,6 +61,12 @@ export default new Router({
       meta: { title: "Vision" }
     },
     {
+      path: "/visplay/:room/:number/:player",
+      name: "visionPlay",
+      component: () => import("./views/vision/Play.vue"),
+      meta: { title: "Vision Play" }
+    },
+    {
       path: "/bombs",
       name: "bombs",
       component: () => import("./views/bombs/Home.vue"),

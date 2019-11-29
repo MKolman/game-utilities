@@ -57,7 +57,6 @@ export default {
   name: "visionIdentity",
   data() {
     return {
-      seed: 0,
       round: 1,
       reveal: false
     };
@@ -67,12 +66,9 @@ export default {
       return 1 + this.getRoles(this.round)[this.$route.params.player];
     }
   },
-  mounted() {
-    this.seed = roomToSeed(this.$route.params.room);
-  },
   methods: {
     getRoles(round) {
-      let seed = this.seed;
+      let seed = roomToSeed(this.$route.params.room);
       let number = +this.$route.params.number;
       let roles = [];
       for (let i = 0; i < rules[number][0]; i++) roles.push(1);
