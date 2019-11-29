@@ -34,7 +34,7 @@ export default {
       if (this.isVertical) {
         [width, height] = [height, width];
       }
-      if (window.innerWidth < window.innerHeight != width < height) {
+      if (window.innerWidth < window.innerHeight) {
         [width, height] = [height, width];
         this.isVertical = true;
       } else {
